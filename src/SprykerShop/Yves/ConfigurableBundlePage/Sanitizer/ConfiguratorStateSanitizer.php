@@ -34,11 +34,6 @@ class ConfiguratorStateSanitizer implements ConfiguratorStateSanitizerInterface
      */
     protected const GLOSSARY_PARAMETER_SKU = '%sku%';
 
-    /**
-     * @param \Generated\Shared\Transfer\ConfiguratorStateTransfer $configuratorStateTransfer
-     *
-     * @return \Generated\Shared\Transfer\ConfiguratorStateTransfer
-     */
     public function sanitizeConfiguratorStateFormData(ConfiguratorStateTransfer $configuratorStateTransfer): ConfiguratorStateTransfer
     {
         $configuratorStateTransfer = $this->sanitizeSlots($configuratorStateTransfer);
@@ -51,11 +46,6 @@ class ConfiguratorStateSanitizer implements ConfiguratorStateSanitizerInterface
         return $configuratorStateTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ConfiguratorStateTransfer $configuratorStateTransfer
-     *
-     * @return \Generated\Shared\Transfer\ConfiguratorStateTransfer
-     */
     protected function sanitizeSlots(ConfiguratorStateTransfer $configuratorStateTransfer): ConfiguratorStateTransfer
     {
         $sanitizedSlotStateFormsData = [];
@@ -95,11 +85,6 @@ class ConfiguratorStateSanitizer implements ConfiguratorStateSanitizerInterface
         return $configuratorStateTransfer->setSlotStateFormsData($sanitizedSlotStateFormsData);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ConfiguratorStateTransfer $configuratorStateTransfer
-     *
-     * @return \Generated\Shared\Transfer\ConfiguratorStateTransfer
-     */
     protected function sanitizeProducts(ConfiguratorStateTransfer $configuratorStateTransfer): ConfiguratorStateTransfer
     {
         $sanitizedProductViewTransfers = new ArrayObject();

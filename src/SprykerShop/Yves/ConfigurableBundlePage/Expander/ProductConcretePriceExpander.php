@@ -23,9 +23,6 @@ class ProductConcretePriceExpander implements ProductConcretePriceExpanderInterf
      */
     protected $priceProductStorageClient;
 
-    /**
-     * @param \SprykerShop\Yves\ConfigurableBundlePage\Dependency\Client\ConfigurableBundlePageToPriceProductStorageClientInterface $priceProductStorageClient
-     */
     public function __construct(ConfigurableBundlePageToPriceProductStorageClientInterface $priceProductStorageClient)
     {
         $this->priceProductStorageClient = $priceProductStorageClient;
@@ -49,11 +46,6 @@ class ProductConcretePriceExpander implements ProductConcretePriceExpanderInterf
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\CurrentProductPriceTransfer
-     */
     protected function getCurrentProductPriceTransfer(ProductViewTransfer $productViewTransfer): CurrentProductPriceTransfer
     {
         $priceProductFilterTransfer = (new PriceProductFilterTransfer())

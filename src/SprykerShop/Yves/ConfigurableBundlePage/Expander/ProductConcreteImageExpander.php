@@ -18,20 +18,11 @@ class ProductConcreteImageExpander implements ProductConcreteImageExpanderInterf
      */
     protected $productImageStorageClient;
 
-    /**
-     * @param \SprykerShop\Yves\ConfigurableBundlePage\Dependency\Client\ConfigurableBundlePageToProductImageStorageClientInterface $productImageStorageClient
-     */
     public function __construct(ConfigurableBundlePageToProductImageStorageClientInterface $productImageStorageClient)
     {
         $this->productImageStorageClient = $productImageStorageClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer
-     */
     public function expandProductViewTransferWithImages(ProductViewTransfer $productViewTransfer, string $localeName): ProductViewTransfer
     {
         $productConcreteImageStorageTransfer = $this->productImageStorageClient->findProductImageConcreteStorageTransfer(
@@ -53,12 +44,6 @@ class ProductConcreteImageExpander implements ProductConcreteImageExpanderInterf
         return $productViewTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     * @param \Generated\Shared\Transfer\ProductImageSetStorageTransfer $productImageSetStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer
-     */
     protected function addImagesFromProductImageSetStorageTransferToProductViewTransfer(
         ProductViewTransfer $productViewTransfer,
         ProductImageSetStorageTransfer $productImageSetStorageTransfer

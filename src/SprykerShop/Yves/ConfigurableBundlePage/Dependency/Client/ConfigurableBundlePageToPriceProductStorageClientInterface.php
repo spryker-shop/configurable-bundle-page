@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\PriceProductFilterTransfer;
 
 interface ConfigurableBundlePageToPriceProductStorageClientInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductFilterTransfer $priceProductFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\CurrentProductPriceTransfer
-     */
     public function getResolvedCurrentProductPriceTransfer(PriceProductFilterTransfer $priceProductFilterTransfer): CurrentProductPriceTransfer;
 }

@@ -17,9 +17,6 @@ class ItemExpander implements ItemExpanderInterface
      */
     protected $productConcreteReader;
 
-    /**
-     * @param \SprykerShop\Yves\ConfigurableBundlePage\Reader\ProductConcreteReaderInterface $productConcreteReader
-     */
     public function __construct(ProductConcreteReaderInterface $productConcreteReader)
     {
         $this->productConcreteReader = $productConcreteReader;

@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\ConfigurableBundleTemplatePageSearchRequestTransfe
 
 interface ConfigurableBundlePageToConfigurableBundlePageSearchClientInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ConfigurableBundleTemplatePageSearchRequestTransfer $configurableBundleTemplatePageSearchRequestTransfer
-     *
-     * @return array
-     */
     public function searchConfigurableBundleTemplates(
         ConfigurableBundleTemplatePageSearchRequestTransfer $configurableBundleTemplatePageSearchRequestTransfer
     ): array;

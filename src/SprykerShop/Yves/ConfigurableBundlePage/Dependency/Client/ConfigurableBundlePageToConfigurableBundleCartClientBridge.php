@@ -25,11 +25,6 @@ class ConfigurableBundlePageToConfigurableBundleCartClientBridge implements Conf
         $this->configurableBundleCartClient = $configurableBundleCartClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CreateConfiguredBundleRequestTransfer $createConfiguredBundleRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function addConfiguredBundle(CreateConfiguredBundleRequestTransfer $createConfiguredBundleRequestTransfer): QuoteResponseTransfer
     {
         return $this->configurableBundleCartClient->addConfiguredBundle($createConfiguredBundleRequestTransfer);

@@ -24,12 +24,6 @@ class ConfigurableBundlePageToProductImageStorageClientBridge implements Configu
         $this->productImageStorageClient = $productImageStorageClient;
     }
 
-    /**
-     * @param int $idProductConcrete
-     * @param string $locale
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteImageStorageTransfer|null
-     */
     public function findProductImageConcreteStorageTransfer(int $idProductConcrete, string $locale): ?ProductConcreteImageStorageTransfer
     {
         return $this->productImageStorageClient->findProductImageConcreteStorageTransfer($idProductConcrete, $locale);

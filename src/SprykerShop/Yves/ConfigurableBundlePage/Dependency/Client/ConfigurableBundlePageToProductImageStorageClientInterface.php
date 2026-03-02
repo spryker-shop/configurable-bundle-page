@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\ProductConcreteImageStorageTransfer;
 
 interface ConfigurableBundlePageToProductImageStorageClientInterface
 {
-    /**
-     * @param int $idProductConcrete
-     * @param string $locale
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteImageStorageTransfer|null
-     */
     public function findProductImageConcreteStorageTransfer(int $idProductConcrete, string $locale): ?ProductConcreteImageStorageTransfer;
 }

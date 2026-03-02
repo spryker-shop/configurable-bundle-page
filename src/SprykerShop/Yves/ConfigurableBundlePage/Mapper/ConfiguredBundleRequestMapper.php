@@ -31,9 +31,6 @@ class ConfiguredBundleRequestMapper implements ConfiguredBundleRequestMapperInte
      */
     protected $itemExpander;
 
-    /**
-     * @param \SprykerShop\Yves\ConfigurableBundlePage\Expander\ItemExpanderInterface $itemExpander
-     */
     public function __construct(ItemExpanderInterface $itemExpander)
     {
         $this->itemExpander = $itemExpander;
@@ -97,11 +94,6 @@ class ConfiguredBundleRequestMapper implements ConfiguredBundleRequestMapperInte
         return $createConfiguredBundleRequestTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ConfigurableBundleTemplateStorageTransfer $configurableBundleTemplateStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\ConfiguredBundleTransfer
-     */
     protected function getMappedConfiguredBundleTransfer(
         ConfigurableBundleTemplateStorageTransfer $configurableBundleTemplateStorageTransfer
     ): ConfiguredBundleTransfer {

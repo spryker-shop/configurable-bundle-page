@@ -129,9 +129,6 @@ class ConfiguratorController extends AbstractController
      */
     protected const MESSAGE_FORM_CSRF_VALIDATION_ERROR = 'form.csrf.error.text';
 
-    /**
-     * @return \Spryker\Yves\Kernel\View\View
-     */
     public function templateSelectionAction(): View
     {
         $response = $this->executeTemplateSelectionAction();
@@ -171,19 +168,11 @@ class ConfiguratorController extends AbstractController
         return $this->view($response, [], '@ConfigurableBundlePage/views/summary/summary.twig');
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     public function addToCartAction(Request $request): RedirectResponse
     {
         return $this->executeAddToCartAction($request);
     }
 
-    /**
-     * @return array
-     */
     protected function executeTemplateSelectionAction(): array
     {
         $formattedSearchResults = $this->getFactory()
@@ -319,11 +308,6 @@ class ConfiguratorController extends AbstractController
         ];
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     public function executeAddToCartAction(Request $request): RedirectResponse
     {
         $idConfigurableBundleTemplate = $request->attributes->getInt(static::PARAM_ID_CONFIGURABLE_BUNDLE_TEMPLATE);
@@ -394,11 +378,6 @@ class ConfiguratorController extends AbstractController
         return $this->redirectResponseInternal(static::ROUTE_CART);
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface $form
-     *
-     * @return bool
-     */
     protected function isSummaryPageUnlocked(FormInterface $form): bool
     {
         $slotStateFormsData = $form->getData()[ConfiguratorStateForm::FIELD_SLOTS] ?? [];
@@ -435,12 +414,6 @@ class ConfiguratorController extends AbstractController
             ]);
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface $form
-     * @param int $idConfigurableBundleTemplateSlot
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer|null
-     */
     protected function findSelectedProductConcreteForSlot(FormInterface $form, int $idConfigurableBundleTemplateSlot): ?ProductViewTransfer
     {
         $sku = $form->getData()[ConfiguratorStateForm::FIELD_SLOTS][$idConfigurableBundleTemplateSlot][SlotStateForm::FIELD_SKU] ?? null;

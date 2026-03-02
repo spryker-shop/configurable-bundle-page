@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ConfiguratorStateTransfer;
 
 interface ConfiguratorStateSanitizerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ConfiguratorStateTransfer $configuratorStateTransfer
-     *
-     * @return \Generated\Shared\Transfer\ConfiguratorStateTransfer
-     */
     public function sanitizeConfiguratorStateFormData(ConfiguratorStateTransfer $configuratorStateTransfer): ConfiguratorStateTransfer;
 }

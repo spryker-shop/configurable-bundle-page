@@ -18,20 +18,11 @@ class ConfigurableBundleTemplateStorageReader implements ConfigurableBundleTempl
      */
     protected $configurableBundleStorageClient;
 
-    /**
-     * @param \SprykerShop\Yves\ConfigurableBundlePage\Dependency\Client\ConfigurableBundlePageToConfigurableBundleStorageClientInterface $configurableBundleStorageClient
-     */
     public function __construct(ConfigurableBundlePageToConfigurableBundleStorageClientInterface $configurableBundleStorageClient)
     {
         $this->configurableBundleStorageClient = $configurableBundleStorageClient;
     }
 
-    /**
-     * @param int $idConfigurableBundleTemplate
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ConfigurableBundleTemplateStorageTransfer|null
-     */
     public function findConfigurableBundleTemplateStorage(int $idConfigurableBundleTemplate, string $localeName): ?ConfigurableBundleTemplateStorageTransfer
     {
         $configurableBundleTemplateStorageTransfer = $this->configurableBundleStorageClient->findConfigurableBundleTemplateStorage(

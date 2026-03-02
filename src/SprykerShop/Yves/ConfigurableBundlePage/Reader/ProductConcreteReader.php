@@ -28,11 +28,6 @@ class ProductConcreteReader implements ProductConcreteReaderInterface
      */
     protected $productConcretePriceExpander;
 
-    /**
-     * @param \SprykerShop\Yves\ConfigurableBundlePage\Dependency\Client\ConfigurableBundlePageToConfigurableBundleStorageClientInterface $configurableBundleStorageClient
-     * @param \SprykerShop\Yves\ConfigurableBundlePage\Expander\ProductConcreteImageExpanderInterface $productConcreteImageExpander
-     * @param \SprykerShop\Yves\ConfigurableBundlePage\Expander\ProductConcretePriceExpanderInterface $productConcretePriceExpander
-     */
     public function __construct(
         ConfigurableBundlePageToConfigurableBundleStorageClientInterface $configurableBundleStorageClient,
         ProductConcreteImageExpanderInterface $productConcreteImageExpander,

@@ -24,12 +24,6 @@ class ConfigurableBundlePageToConfigurableBundleStorageClientBridge implements C
         $this->configurableBundleStorageClient = $configurableBundleStorageClient;
     }
 
-    /**
-     * @param int $idConfigurableBundleTemplate
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ConfigurableBundleTemplateStorageTransfer|null
-     */
     public function findConfigurableBundleTemplateStorage(int $idConfigurableBundleTemplate, string $localeName): ?ConfigurableBundleTemplateStorageTransfer
     {
         return $this->configurableBundleStorageClient->findConfigurableBundleTemplateStorage($idConfigurableBundleTemplate, $localeName);

@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\ProductViewTransfer;
 
 interface ProductConcreteImageExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer
-     */
     public function expandProductViewTransferWithImages(ProductViewTransfer $productViewTransfer, string $localeName): ProductViewTransfer;
 }
