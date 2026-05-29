@@ -97,7 +97,7 @@ class ConfiguratorController extends AbstractController
      *
      * @var int
      */
-    protected const REQUEST_PARAM_ITEMS_PER_PAGE_VALUE = 1000;
+    protected const REQUEST_PARAM_ITEMS_PER_PAGE_VALUE = 36;
 
     /**
      * @var string
