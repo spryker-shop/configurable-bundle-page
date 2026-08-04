@@ -1,8 +1,15 @@
+@use 'sass:meta';
+@use 'sass:map';
+
 @mixin configurable-bundle-page-configured-bundle-total($name: '.configured-bundle-total') {
     #{$name} {
-        padding: map-get($setting-spacing, 'default');
-        margin: map-get($setting-spacing, 'big') map-get($setting-spacing, 'default');
+        padding: map.get($setting-spacing, 'default');
+        margin: map.get($setting-spacing, 'big') map.get($setting-spacing, 'default');
         background: $setting-color-lighter;
+
+        @if meta.mixin-exists(configurable-bundle-page-configured-bundle-total-base-hook) {
+            @include configurable-bundle-page-configured-bundle-total-base-hook;
+        }
 
         @content;
     }

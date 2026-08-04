@@ -1,5 +1,11 @@
+@use 'sass:meta';
+
 @mixin configurable-bundle-page-configurator-product($name: '.configurator-product') {
     @include shop-ui-product-item-list($name) {
+        @if meta.mixin-exists(configurable-bundle-page-configurator-product-base-hook) {
+            @include configurable-bundle-page-configurator-product-base-hook;
+        }
+
         @content;
     }
 }

@@ -1,12 +1,19 @@
+@use 'sass:meta';
+@use 'sass:map';
+
 @mixin configurable-bundle-page-template-list($name: '.template-list') {
     #{$name} {
         @include helper-ui-clearfix;
         border: 1px solid $setting-color-lighter;
-        padding: 1.75rem map-get($setting-spacing, 'default') 2.5rem;
-        margin: map-get($setting-spacing, 'default');
+        padding: 1.75rem map.get($setting-spacing, 'default') 2.5rem;
+        margin: map.get($setting-spacing, 'default');
+
+        @if meta.mixin-exists(configurable-bundle-page-template-list-base-hook) {
+            @include configurable-bundle-page-template-list-base-hook;
+        }
 
         &__list {
-            margin: map-get($setting-spacing, 'reset') -#{map-get($setting-spacing, 'default')};
+            margin: map.get($setting-spacing, 'reset') -#{map.get($setting-spacing, 'default')};
         }
 
         &__item-title {
