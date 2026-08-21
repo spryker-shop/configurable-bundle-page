@@ -12,4 +12,9 @@ use Generated\Shared\Transfer\ProductConcreteImageStorageTransfer;
 interface ConfigurableBundlePageToProductImageStorageClientInterface
 {
     public function findProductImageConcreteStorageTransfer(int $idProductConcrete, string $locale): ?ProductConcreteImageStorageTransfer;
+
+    /**
+     * @return array<\Generated\Shared\Transfer\ProductImageSetStorageTransfer>|null
+     */
+    public function resolveProductImageSetStorageTransfers(int $idProductConcrete, int $idProductAbstract, string $locale): ?array;
 }

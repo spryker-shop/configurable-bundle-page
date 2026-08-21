@@ -25,16 +25,17 @@ class ProductConcreteImageExpander implements ProductConcreteImageExpanderInterf
 
     public function expandProductViewTransferWithImages(ProductViewTransfer $productViewTransfer, string $localeName): ProductViewTransfer
     {
-        $productConcreteImageStorageTransfer = $this->productImageStorageClient->findProductImageConcreteStorageTransfer(
-            $productViewTransfer->getIdProductConcrete(),
+        $productImageSetStorageTransfers = $this->productImageStorageClient->resolveProductImageSetStorageTransfers(
+            $productViewTransfer->getIdProductConcreteOrFail(),
+            $productViewTransfer->getIdProductAbstractOrFail(),
             $localeName,
         );
 
-        if (!$productConcreteImageStorageTransfer) {
+        if (!$productImageSetStorageTransfers) {
             return $productViewTransfer;
         }
 
-        foreach ($productConcreteImageStorageTransfer->getImageSets() as $productImageSetStorageTransfer) {
+        foreach ($productImageSetStorageTransfers as $productImageSetStorageTransfer) {
             $productViewTransfer = $this->addImagesFromProductImageSetStorageTransferToProductViewTransfer(
                 $productViewTransfer,
                 $productImageSetStorageTransfer,
