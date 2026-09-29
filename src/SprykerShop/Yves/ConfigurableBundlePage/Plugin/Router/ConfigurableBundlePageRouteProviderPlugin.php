@@ -117,7 +117,7 @@ class ConfigurableBundlePageRouteProviderPlugin extends AbstractRouteProviderPlu
         $route = $this->buildRoute('/configurable-bundle/configurator/{idConfigurableBundleTemplate}/slots/{idConfigurableBundleTemplateSlot}', 'ConfigurableBundlePage', 'Configurator', 'slotsAction');
         $route = $route->setRequirement(static::PARAM_ID_CONFIGURABLE_BUNDLE_TEMPLATE, '\d+');
         $route = $route->setRequirement(static::PARAM_ID_CONFIGURABLE_BUNDLE_TEMPLATE_SLOT, '\d+');
-        $route = $route->setDefault(static::PARAM_ID_CONFIGURABLE_BUNDLE_TEMPLATE_SLOT, null);
+        $route = $route->setDefault(static::PARAM_ID_CONFIGURABLE_BUNDLE_TEMPLATE_SLOT, 0);
 
         $routeCollection->add(static::ROUTE_NAME_CONFIGURATOR_SLOTS, $route);
 
