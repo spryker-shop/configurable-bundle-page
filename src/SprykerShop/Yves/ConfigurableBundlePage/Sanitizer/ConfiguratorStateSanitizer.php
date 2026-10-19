@@ -87,6 +87,7 @@ class ConfiguratorStateSanitizer implements ConfiguratorStateSanitizerInterface
 
     protected function sanitizeProducts(ConfiguratorStateTransfer $configuratorStateTransfer): ConfiguratorStateTransfer
     {
+        /** @var \ArrayObject<int, \Generated\Shared\Transfer\ProductViewTransfer> $sanitizedProductViewTransfers */
         $sanitizedProductViewTransfers = new ArrayObject();
 
         foreach ($configuratorStateTransfer->getConfigurableBundleTemplateStorage()->getSlots() as $configurableBundleTemplateSlotStorageTransfer) {

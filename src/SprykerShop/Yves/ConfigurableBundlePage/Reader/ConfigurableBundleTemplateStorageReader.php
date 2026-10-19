@@ -46,6 +46,7 @@ class ConfigurableBundleTemplateStorageReader implements ConfigurableBundleTempl
      */
     protected function getIndexedConfigurableBundleTemplateStorageTransfers(ArrayObject $configurableBundleTemplateSlotStorageTransfers): ArrayObject
     {
+        /** @var \ArrayObject<int, \Generated\Shared\Transfer\ConfigurableBundleTemplateSlotStorageTransfer> $indexedConfigurableBundleTemplateSlotStorageTransfers */
         $indexedConfigurableBundleTemplateSlotStorageTransfers = new ArrayObject();
 
         foreach ($configurableBundleTemplateSlotStorageTransfers as $configurableBundleTemplateSlotStorageTransfer) {
