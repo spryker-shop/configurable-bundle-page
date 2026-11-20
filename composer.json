@@ -27,7 +27,8 @@
         "spryker/router": "*"
     },
     "suggest": {
-        "spryker/router": "Use this module if you want use the RouterProviderPlugin."
+        "spryker/router": "Use this module if you want use the RouterProviderPlugin.",
+        "spryker-shop/traceable-event-widget": "If you want the products to carry their tracking details (ProductTrackingDetailsWidget) for the traceable events."
     },
     "autoload": {
         "psr-4": {

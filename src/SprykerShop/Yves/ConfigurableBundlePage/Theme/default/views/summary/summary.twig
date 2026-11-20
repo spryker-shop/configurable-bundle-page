@@ -104,3 +104,46 @@
         {% endblock %}
     </div>
 {% endblock %}
+
+{% block eventTracker %}
+    {# The tracking data are built only while the storefront tracks user actions: the traceable event widget is registered and the visitor has not turned the tracking off. #}
+    {% set isUserActionTrackingEnabled = findWidget('TraceableEventWidget').parameters.isUserActionTrackingEnabled ?? false %}
+
+    {# The configured bundle's products as the traceable events report them, in the quantities of their slots; the price in cents.
+       The ProductTrackingDetailsWidget below adds the abstract product SKU and name, brand, variant and categories. #}
+    {% set trackingProducts = [] %}
+    {% if isUserActionTrackingEnabled %}
+        {% for product in data.products %}
+            {% set trackingProducts = trackingProducts | merge([{
+                sku: product.sku,
+                name: product.name,
+                price: can('SeePricePermissionPlugin') ? product.price : null,
+                quantity: product.quantity | default(1),
+            }]) %}
+        {% endfor %}
+    {% endif %}
+
+    {% set events = {
+        list: events.list | merge([
+            {
+                event: 'ADD_TO_CART',
+                name: 'click',
+                triggers: [
+                    {
+                        selector: 'form[action*="/configurable-bundle/configurator/"][action$="/add-to-cart"] button',
+                        data: {
+                            products: {
+                                value: trackingProducts,
+                            },
+                        },
+                    },
+                ],
+            },
+        ]),
+        data: events.data,
+    } %}
+
+    {% widget 'ProductTrackingDetailsWidget' args [data.products] only %}{% endwidget %}
+
+    {{ parent() }}
+{% endblock %}
